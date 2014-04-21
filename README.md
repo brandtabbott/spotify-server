@@ -1,4 +1,4 @@
-![Spotify-Server](https://github.com/spotify-server/raw/master/public/img/Spotify-US.png)
+![Spotify-Server](https://github.com/brandtabbott/spotify-server/raw/master/public/img/Spotify-US.png)
 ================
 
 While we all sit and wait for the Spotify team to make play.spotify.com work 
