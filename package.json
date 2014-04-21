@@ -1,0 +1,26 @@
+{
+  "name": "spotify-server",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node spotify-server.js"
+  },
+  "dependencies": {
+    "spotify-web": "1.1.1",
+    "xml2js": "0.4.2",
+    "express": "3.1.1",
+    "ejs": "1.0.0",
+    "tinycolor": "0.0.1",
+    "express-session": "1.0.2",
+    "cookie-parser": "1.0.1"
+  },
+  "engines" : {
+    "node": "0.10.24",
+    "npm": "1.4.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TooTallNate/node-spotify-web.git"
+  },
+  "author": "Brandt Abbott <brandtabbott@hotmail.com>",
+  "license": "MIT"
+}

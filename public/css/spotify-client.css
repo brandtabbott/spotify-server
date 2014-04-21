@@ -1,0 +1,173 @@
+.spotify-server {
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(0, #57F059),
+    color-stop(1, #143815)
+  );
+  background-image: -o-linear-gradient(right, #57F059 0%, #143815 100%);
+  background-image: -moz-linear-gradient(right, #57F059 0%, #143815 100%);
+  background-image: -webkit-linear-gradient(right, #57F059 0%, #143815 100%);
+  background-image: -ms-linear-gradient(right, #57F059 0%, #143815 100%);
+  background-image: linear-gradient(to right, #57F059 0%, #143815 100%);
+}
+
+.navbar-default{border: 0; border-bottom: 1px solid #fff; background-color: transparent; color: #fff;}
+.navbar-default .navbar-brand{font-size: 40px; color: #fff; font-weight: bold;;}
+.navbar-nav.navbar-right:last-child{margin-right: 20px;}
+.glyphicon{margin: 20px 0px; font-size: 25px; color: #fff; margin-right: 10px; cursor: pointer;}
+
+.playlists{font-size: 25px;}
+.playlists-left{border-right: 1px solid #fff;}
+
+a.list-group-item{background-color:transparent; color: #fff; border: 0}      
+.list-group-item{border-radius: 4px;}
+
+.album-name{font-size: 25px; color: #fff;}
+.song-artist{font-size: 25px; color: #fff}
+.song-name{font-size: 25px; color: #fff}
+
+.progress{display: inline-block; float: left; width: 75%;}
+
+#current-time{float: left; color: #fff; margin-right: 5px;}
+#duration{float: left; color: #fff; margin-left: 5px;}
+
+thead{color: #fff;}
+tr{cursor: pointer;}
+
+input.search{
+  position: absolute;
+  left: 35%;
+  top: 17px;
+  height: 30px;
+  width: 420px;
+  background: url("/img/lens.png") #fff no-repeat 95%;
+  border-radius: 4px;
+  color: #000;
+  font-size: 20px;
+  -webkit-transition: all .3s linear;
+  -moz-transition: all .3s linear;
+  transition: all .3s linear; 
+  text-align: center;
+}
+
+input.search:focus{
+  background-color: #fff;
+  border: 0; 
+}
+
+.searchResults .header{
+  font-size: 25px;
+  color: #fff;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.photos {
+  display: block;
+}
+
+.photos ul {
+  list-style: none;
+
+}
+
+.photos ul li {
+  background: transparent;
+  display: inline;
+  list-style: none;
+  float: left;
+  margin: 0 30px 10px 0;
+  padding: 0;
+  text-align:center; 
+  color: #fff;
+  max-width: 150px;
+  height: 200px;
+}
+
+.photos ul li a {
+  display: block;
+  margin-bottom: 2px; 
+  opacity: 0.75;
+  font-size: 12px;
+  text-decoration: none;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  color: #fff;
+}
+.photos ul li a:hover {
+  opacity: 1.0;
+}
+
+.photos ul li a img {
+}
+
+
+/*LOGIN*/
+.login-wrapper {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.login-wrapper .logo {
+  margin-bottom: 45px;
+  position: relative;
+  left: -2px;
+}
+.login-wrapper .box {
+  margin: 0 auto;
+  padding: 35px 0 30px;
+  float: none;
+  width: 400px;
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.65);
+}
+.login-wrapper .box .content-wrap {
+  width: 82%;
+  margin: 0 auto;
+}
+.login-wrapper .box h6 {
+  text-transform: uppercase;
+  margin: 0 0 30px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+.login-wrapper .box input[type="text"],
+.login-wrapper .box input[type="password"] {
+  font-size: 15px;
+  height: 40px;
+  margin-bottom: 18px;
+  border-color: #b2bfc7;
+  padding-left: 12px;
+}
+.login-wrapper .box input[type="password"] {
+  margin-bottom: 10px;
+}
+.login-wrapper .box input:-moz-placeholder {
+  color: #9ba8b6;
+  font-size: 15px;
+  letter-spacing: 0px;
+  font-style: italic;
+}
+.login-wrapper .box input:-ms-input-placeholder {
+  color: #9ba8b6;
+  font-style: italic;
+  letter-spacing: 0px;
+  font-size: 15px;
+}
+.login-wrapper .box input::-webkit-input-placeholder {
+  color: #9ba8b6;
+  font-style: italic;
+  letter-spacing: 0px;
+  font-size: 15px;
+}
+.login-wrapper .box .login {
+  text-transform: uppercase;
+  font-size: 13px;
+  padding: 8px 30px;
+}

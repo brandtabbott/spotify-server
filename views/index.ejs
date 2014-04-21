@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+  <head>  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Boostrap CSS -->  
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"> 
+
+    <!-- Spotify Server CSS -->
+    <link href="/css/spotify-client.css" rel="stylesheet"> 
+
+    <!-- Jquery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>            
+
+    <!-- Handlebars -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.js"></script>   
+
+    <!-- Spotify Server JS -->
+    <script src="/js/spotify-client.js"></script>          
+
+    <title>Spotify Server</title>
+  </head>
+
+ <body class="spotify-server">
+
+  <nav class="navbar navbar-default" role="navigation">
+    <div id="nav" class="container-fluid" style="display: none"> 
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/"><img src="/img/Spotify-US.png" width="40px" height="40px"/></a>
+      </div>      
+      <input class="search" type="text" data-toggle="popover" data-placement="bottom" data-content="Search Tracks"/>
+      <ul class="nav navbar-nav navbar-right">
+        <a id="playlists-link" href="#"><span id="playlists-link" class="glyphicon glyphicon glyphicon-th-list"></span></a>
+        <a id="nowPlaying-link" href="#"><span id="nowPlaying-link" class="glyphicon glyphicon glyphicon-play"></span></a>        
+        <a id="settings-link" href="#"><span class="glyphicon glyphicon glyphicon-cog"></span></a>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="content">  
+    <div class="login-wrapper" style="display: none">
+      <a href="/"><img class="logo" src="/img/Spotify-US.png" alt="logo" height="40px" width="40px"/></a>
+
+      <div class="box">
+        <div class="content-wrap">
+          <h6>Log in</h6>
+          <input class="form-control" type="text" id="username" placeholder="Username"/>
+          <input class="form-control" type="password" id="password" placeholder="Password"/> 
+          <div id="loginMessage" class="alert alert-danger" style="display: none">Invalid login</div>                            
+          <button id="login" type="button" class="btn btn-success login">Log in</button>
+        </div>
+      </div>
+    </div>    
+  </div>
+
+  <script id="nav" type="text/x-handlebars-template">
+
+  </script>  
+
+  <script id="playlists" type="text/x-handlebars-template">
+  <div class="playlists">
+    <div class="col-md-8 playlists-left">
+      <div class="list-group">
+      {{#each playlists}}
+        <a href="#" id="{{playlistURI}}" name="playListLink" class="list-group-item list-group-item-success">{{attributes.name}}</a>
+      {{/each}}
+      </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+  </script>
+
+  <script id="tracks" type="text/x-handlebars-template">
+  <div class="currentTrack">
+  </div>
+  <div class="tracks">
+    <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <th>Song</th>
+          <th>Artist</th>
+          <th>Album</th>
+        </thead>
+        {{#each tracks}}
+        <tr id="{{trackURI}}" name="track" class="success" onclick="playTrack(this.id)">
+          <td>{{name}}</td>
+          <td>{{artist.0.name}}</td>
+          <td>{{album.name}}</td>
+        </tr>
+        {{/each}}
+      </table>
+    </div>
+    </div>
+  </div>
+  </script>
+
+  <script id="currentTrack" type="text/x-handlebars-template">
+    <div class="col-md-1"></div>
+    <div class="col-md-4" id="albumArt"></div>
+    <div class="col-md-5">  
+      {{#if name}}
+        <div class="album-name">{{name}}</div>
+        <div class="song-artist">by {{artist.0.name}}</div>
+        <div class="song-name">on {{album.name}}</div>
+      {{/if}}
+      <br/>
+      <span id="current-time"></span>
+      <div class="progress progress-striped active">        
+        <div id="progress-bar" class="progress-bar progress-bar-success" style="width: 0%">
+        </div>
+      </div>  
+      <span id="duration"></span>
+      <br style="clear: both"/>
+      <span id="previousTrack" class="glyphicon glyphicon glyphicon-fast-backward"></span>
+      <span id="playAudio" class="glyphicon glyphicon glyphicon-play"></span>
+      <span id="pauseAudio" class="glyphicon glyphicon glyphicon-pause"></span>      
+      <span id="nextTrack" class="glyphicon glyphicon glyphicon-fast-forward"></span>                  
+    </div>
+  </script>
+
+  <script id="currentAlbumArt" type="text/x-handlebars-template">
+    <img src="{{thumbnail_url}}" witdh="300px" height="300px"></img>
+  </script>
+
+  <script id="searchResults" type="text/x-handlebars-template">             
+    <div class="searchResults container-fluid">
+      {{#if tracks}}
+      <div class="header">Tracks</div>
+        <div class="photos">
+          <ul>
+            {{#each tracks}}
+            {{#if data.oembed.thumbnail_url}}
+            <li>
+              <span><a href="#" class="enqueueTrack" id="{{data.itemGID}}"><img class="enqueueTrack" id="{{data.itemGID}}" src="{{data.oembed.thumbnail_url}}" width="150px" height="150px"/><span>{{data.oembed.title}}</span></a></span>              
+            </li>          
+            {{/if}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+      {{/if}}
+    </div>
+  </script>
+
+  <audio id="audioPlayer" autoplay='autoplay'></audio>
+
+  <div class="modal fade">
+    <span id="searching_spinner_center" style="position: absolute; display: block; top: 40%; left: 45%;"><img src="/img/ajax-loader.gif"/></span>
+  </div>     
+</body>  
+</html>
