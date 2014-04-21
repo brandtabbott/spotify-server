@@ -1,6 +1,6 @@
 {
   "name": "spotify-server",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "start": "node spotify-server.js"
   },
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/TooTallNate/node-spotify-web.git"
+    "url": "https://github.com/brandtabbott/spotify-server"
   },
   "author": "Brandt Abbott <brandtabbott@hotmail.com>",
   "license": "MIT"
