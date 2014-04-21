@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ![Spotify-Server](https://github.com/spotify-server/raw/master/public/img/Spotify-US.png)
 ================
 
@@ -44,3 +45,9 @@ License
 
 Copyright (c) 2013 Brandt Abbott. Distributed under the MIT License. See
 LICENSE.txt for further details.
+=======
+spotify-server
+==============
+
+Server and HTML5 Spotify client for use on the Xbox/XboxOne
+>>>>>>> 47184b8c10d1f68f992bdfa06e682f961007ddd6
