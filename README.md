@@ -25,7 +25,8 @@ Installation
 
 Execute:
 
-    $ npm install
+    $ npm install spotify-server
+    $ cd node_modules/spotify-server
 
 Once everything installs correctly:
 
