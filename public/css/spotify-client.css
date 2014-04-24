@@ -14,9 +14,12 @@
 }
 
 .navbar-default{border: 0; border-bottom: 1px solid #fff; background-color: transparent; color: #fff;}
-.navbar-default .navbar-brand{font-size: 40px; color: #fff; font-weight: bold;;}
+.navbar-default .navbar-brand{font-size: 40px; color: #fff; font-weight: bold;}
+.navbar-brand{padding: 3px 15px;}
 .navbar-nav.navbar-right:last-child{margin-right: 20px;}
-.glyphicon{margin: 20px 0px; font-size: 25px; color: #fff; margin-right: 10px; cursor: pointer;}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus{background-color: transparent;}
+.navbar li a{padding: 10px 0px 0px 20px}
+.glyphicon{font-size: 25px; color: #fff; cursor: pointer;}
 
 .playlists{font-size: 25px;}
 .playlists-left{border-right: 1px solid #fff;}
@@ -39,7 +42,7 @@ tr{cursor: pointer;}
 input.search{
   position: absolute;
   left: 35%;
-  top: 17px;
+  top: 10px;
   height: 30px;
   width: 420px;
   background: url("/img/lens.png") #fff no-repeat 95%;
@@ -90,7 +93,7 @@ input.search:focus{
   display: block;
   margin-bottom: 2px; 
   opacity: 0.75;
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
   -webkit-transition: all 0.3s linear;
   -moz-transition: all 0.3s linear;

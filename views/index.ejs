@@ -35,10 +35,21 @@
         <a class="navbar-brand" href="/"><img src="/img/Spotify-US.png" width="40px" height="40px"/></a>
       </div>      
       <input class="search" type="text" data-toggle="popover" data-placement="bottom" data-content="Search Tracks"/>
+
       <ul class="nav navbar-nav navbar-right">
-        <a id="playlists-link" href="#"><span id="playlists-link" class="glyphicon glyphicon glyphicon-th-list"></span></a>
-        <a id="nowPlaying-link" href="#"><span id="nowPlaying-link" class="glyphicon glyphicon glyphicon-play"></span></a>        
-        <a id="settings-link" href="#"><span class="glyphicon glyphicon glyphicon-cog"></span></a>
+        <li>
+          <a id="playlists-link" href="#"><span class="glyphicon glyphicon glyphicon-th-list" data-toggle="tooltip" data-placement="bottom" title="Playlists"></span></a>
+        </li>
+        <li>
+          <a id="nowPlaying-link" href="#"><span class="glyphicon glyphicon glyphicon-play" data-toggle="tooltip" data-placement="bottom" title="Now Playing"></span></a>        
+        </li>
+        <li class="dropdown">
+          <a id="settings-link" href="#" data-toggle="dropdown"><span class="glyphicon glyphicon glyphicon-cog"></span></a>
+          <ul class="dropdown-menu">
+            <li role="presentation" class="dropdown-header">Options</li>
+            <li><a href="/spotify-server/logout">Logout</a></li>
+          </ul>  
+        </li>
       </ul>
     </div>
   </nav>

@@ -27,7 +27,9 @@ app.get('/', function(req, res){
 });
 
 app.get('/spotify-server/logout', function(req,res){
-
+  req.session.destroy(function(){
+    res.redirect('/');
+  });
 });
 
 //Get login information

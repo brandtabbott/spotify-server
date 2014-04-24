@@ -249,7 +249,10 @@ $(document).ready(function(){
   $('#playlists-link').click(function(e){
     e.preventDefault();
     renderHandlebarsTemplate('playlists', playlists);
-  });      
+  });    
+  $('.glyphicon-th-list').mouseover(function(){
+    $(this).tooltip('show');
+  });  
 
   //Handler for Now playing link
   $('#nowPlaying-link').click(function(e){
@@ -259,6 +262,9 @@ $(document).ready(function(){
     renderAlbumArt(tracks.tracks[currentTrack].trackURI);   
     highlighTrackRow(tracks.tracks[currentTrack].trackURI);
   });
+  $('.glyphicon-play').mouseover(function(){
+    $(this).tooltip('show');
+  });   
 
   //Handler for Search link
   $('#search-link').click(function(e){

@@ -4,7 +4,7 @@ Spotify-Server
 ================
 
 While we all sit and wait for the Spotify team to make play.spotify.com work 
-in IE on the Xbox/XboxOne, you can empower yourself now and run Spotify-Server
+in IE on the XboxOne, you can empower yourself now and run Spotify-Server
 yourself.  There is NO setup required as long as you have Node.js
 and NPM already installed.
 
@@ -20,6 +20,11 @@ bugs and incomplete in some areas, but it seems functional.
 NOTE: You need to use your Spotify Username/Password to login, I have not 
 implemented the Facebook login into the UI/Server
 
+Quick Start
+-----------
+
+See the [Quick Start Guide](https://github.com/brandtabbott/spotify-server/wiki/Quick-Start-Guide)
+
 Installation
 ------------
 
@@ -32,7 +37,7 @@ Once everything installs correctly:
 
     $ node spotify-server.js
 
-From your Xbox/XboxOne goto URL:
+From your XboxOne goto URL:
 
     http://your-server-ip:3000
 
