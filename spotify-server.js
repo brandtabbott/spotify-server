@@ -38,7 +38,7 @@ app.get('/spotify-server/login/:usernameAndpassword', function(req, res){
   var uname = up.split(':')[0];
   var pw = up.split(':')[1];
 
-  if(req.session.username && uname=='check'){
+  if(req.session.loggedin && req.session.username && uname=='check'){
     res.send({success: 'success'});
     return;
   }
@@ -55,6 +55,7 @@ app.get('/spotify-server/login/:usernameAndpassword', function(req, res){
   .on('success', function(data){
     req.session.username = uname;
     req.session.password = pw;
+    req.session.loggedin = true;
     res.send({success: 'success'});
   });
 });

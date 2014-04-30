@@ -11,7 +11,14 @@ var getPlayLists, //function
     currentTrack = 0;
 
 $(document).ready(function(){
+  if(typeof($.cookie('username')) != 'undefined')
+    $('#username').val($.cookie('username'))
+
+  if(typeof($.cookie('password')) != 'undefined')
+    $('#password').val($.cookie('password'));
+
   $.ajax({
+    cache: "false",
     dataType: "json",
     url: '/spotify-server/login/check:check',
     beforeSend: function() {
@@ -20,6 +27,7 @@ $(document).ready(function(){
   }).done(function(data){  
     if(data.success){
       $('#nav').show();
+      $('.login-wrapper').hide();
       getPlayLists();        
     }
     else{
@@ -61,6 +69,7 @@ $(document).ready(function(){
       var id = e.target.id;
       e.preventDefault();      
       $.ajax({
+        cache: "false",
         dataType: "json",
         url: '/spotify-server/track/'+id,
         beforeSend: function() {
@@ -100,6 +109,7 @@ $(document).ready(function(){
   getPlayLists = function() {
     //Get Playlists
     $.ajax({
+      cache: "false",
       dataType: "json",
       url: '/spotify-server/playlists',
       beforeSend: function() {
@@ -116,6 +126,7 @@ $(document).ready(function(){
   //Get Plastlist tracks        
   getPlayListTracks = function(uri){
     $.ajax({
+      cache: "false",
       dataType: "json",
       url: '/spotify-server/playlist/'+uri.split(':')[4],
       beforeSend: function() {
@@ -133,6 +144,7 @@ $(document).ready(function(){
 
   renderAlbumArt = function(trackURI){
     $.ajax({
+      cache: "false",
       dataType: "json",
       url: '/spotify-server/album-art/'+trackURI        
     }).done(function(data){
@@ -188,6 +200,7 @@ $(document).ready(function(){
   //Handler for login
   $('#login').click(function(){
     $.ajax({
+      cache: "false",
       dataType: "json",
       url: '/spotify-server/login/'+$('#username').val()+':'+$('#password').val(),
       beforeSend: function() {
@@ -195,7 +208,10 @@ $(document).ready(function(){
       }            
     }).done(function(data){  
       if(data.success){
+        $.cookie('username', $('#username').val());
+        $.cookie('password', $('#password').val());
         $('#nav').show();
+        $('.login-wrapper').hide();        
         getPlayLists();        
       }
       else{
@@ -278,6 +294,7 @@ $(document).ready(function(){
 
     if(e.which==13){
       $.ajax({
+        cache: "false",
         dataType: "json",
         url: '/spotify-server/search/'+self.val(),
         beforeSend: function() {
