@@ -18,7 +18,7 @@ $(document).ready(function(){
     $('#password').val($.cookie('password'));
 
   $.ajax({
-    cache: "false",
+    cache: false,
     dataType: "json",
     url: '/spotify-server/login/check:check',
     beforeSend: function() {
@@ -69,7 +69,7 @@ $(document).ready(function(){
       var id = e.target.id;
       e.preventDefault();      
       $.ajax({
-        cache: "false",
+        cache: false,
         dataType: "json",
         url: '/spotify-server/track/'+id,
         beforeSend: function() {
@@ -109,7 +109,7 @@ $(document).ready(function(){
   getPlayLists = function() {
     //Get Playlists
     $.ajax({
-      cache: "false",
+      cache: false,
       dataType: "json",
       url: '/spotify-server/playlists',
       beforeSend: function() {
@@ -126,7 +126,7 @@ $(document).ready(function(){
   //Get Plastlist tracks        
   getPlayListTracks = function(uri){
     $.ajax({
-      cache: "false",
+      cache: false,
       dataType: "json",
       url: '/spotify-server/playlist/'+uri.split(':')[4],
       beforeSend: function() {
@@ -144,7 +144,7 @@ $(document).ready(function(){
 
   renderAlbumArt = function(trackURI){
     $.ajax({
-      cache: "false",
+      cache: false,
       dataType: "json",
       url: '/spotify-server/album-art/'+trackURI        
     }).done(function(data){
@@ -200,7 +200,7 @@ $(document).ready(function(){
   //Handler for login
   $('#login').click(function(){
     $.ajax({
-      cache: "false",
+      cache: false,
       dataType: "json",
       url: '/spotify-server/login/'+$('#username').val()+':'+$('#password').val(),
       beforeSend: function() {
@@ -294,7 +294,7 @@ $(document).ready(function(){
 
     if(e.which==13){
       $.ajax({
-        cache: "false",
+        cache: false,
         dataType: "json",
         url: '/spotify-server/search/'+self.val(),
         beforeSend: function() {

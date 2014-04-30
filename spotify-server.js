@@ -38,12 +38,12 @@ app.get('/spotify-server/login/:usernameAndpassword', function(req, res){
   var uname = up.split(':')[0];
   var pw = up.split(':')[1];
 
-  if(req.session.loggedin && req.session.username && uname=='check'){
+  if(req.session.loggedin && uname=='check'){
     res.send({success: 'success'});
     return;
   }
 
-  if(!req.session.username && uname=='check'){
+  if(!req.session.loggedin && uname=='check'){
     res.send({error: {message: "invalid login"}});
     return;
   }
