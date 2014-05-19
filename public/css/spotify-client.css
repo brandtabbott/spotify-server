@@ -31,6 +31,8 @@ a.list-group-item{background-color:transparent; color: #fff; border: 0}
 .song-artist{font-size: 25px; color: #fff}
 .song-name{font-size: 25px; color: #fff}
 
+.song-name span, .song-artist span{color: #174118;}
+
 .progress{display: inline-block; float: left; width: 75%;}
 
 #current-time{float: left; color: #fff; margin-right: 5px;}

@@ -36,25 +36,34 @@
   <nav class="navbar navbar-default" role="navigation">
     <div id="nav" class="container-fluid" style="display: none"> 
       <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>      
+        </button>
         <a class="navbar-brand" href="/"><img src="/img/Spotify-US.png" width="40px" height="40px"/></a>
-      </div>      
-      <input class="search" type="text" data-toggle="popover" data-placement="bottom" data-content="Search Tracks"/>
+      </div>     
 
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a id="playlists-link" href="#"><span class="glyphicon glyphicon glyphicon-th-list" data-toggle="tooltip" data-placement="bottom" title="Playlists"></span></a>
-        </li>
-        <li>
-          <a id="nowPlaying-link" href="#"><span class="glyphicon glyphicon glyphicon-play" data-toggle="tooltip" data-placement="bottom" title="Now Playing"></span></a>        
-        </li>
-        <li class="dropdown">
-          <a id="settings-link" href="#" data-toggle="dropdown"><span class="glyphicon glyphicon glyphicon-cog"></span></a>
-          <ul class="dropdown-menu">
-            <li role="presentation" class="dropdown-header">Options</li>
-            <li><a href="/spotify-server/logout">Logout</a></li>
-          </ul>  
-        </li>
-      </ul>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <input class="search hidden-xs" type="text" data-toggle="popover" data-placement="bottom" data-content="Search Tracks"/>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a id="playlists-link" href="#"><span class="glyphicon glyphicon glyphicon-th-list" data-toggle="tooltip" data-placement="bottom" title="Playlists"></span></a>
+          </li>
+          <li>
+            <a id="nowPlaying-link" href="#"><span class="glyphicon glyphicon glyphicon-play" data-toggle="tooltip" data-placement="bottom" title="Now Playing"></span></a>        
+          </li>
+          <li class="dropdown">
+            <a id="settings-link" href="#" data-toggle="dropdown"><span class="glyphicon glyphicon glyphicon-cog"></span></a>
+            <ul class="dropdown-menu">
+              <li role="presentation" class="dropdown-header">Options</li>
+              <li><a href="/spotify-server/logout">Logout</a></li>
+            </ul>  
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 
@@ -96,20 +105,21 @@
   <script id="tracks" type="text/x-handlebars-template">
   <div class="currentTrack">
   </div>
+  <br/>
   <div class="tracks">
     <div class="col-md-12">
     <div class="table-responsive">
       <table class="table table-hover">
         <thead>
           <th>Song</th>
-          <th>Artist</th>
-          <th>Album</th>
+          <th class="hidden-xs">Artist</th>
+          <th class="hidden-xs">Album</th>
         </thead>
         {{#each tracks}}
         <tr id="{{trackURI}}" name="track" class="success" onclick="playTrack(this.id)">
           <td>{{name}}</td>
-          <td>{{artist.0.name}}</td>
-          <td>{{album.name}}</td>
+          <td class="hidden-xs">{{artist.0.name}}</td>
+          <td class="hidden-xs">{{album.name}}</td>
         </tr>
         {{/each}}
       </table>
@@ -124,8 +134,8 @@
     <div class="col-md-5">  
       {{#if name}}
         <div class="album-name">{{name}}</div>
-        <div class="song-artist">by {{artist.0.name}}</div>
-        <div class="song-name">on {{album.name}}</div>
+        <div class="song-artist"><span>by</span> {{artist.0.name}}</div>
+        <div class="song-name"><span>on</span> {{album.name}}</div>
       {{/if}}
       <br/>
       <span id="current-time"></span>
@@ -135,10 +145,12 @@
       </div>  
       <span id="duration"></span>
       <br style="clear: both"/>
-      <span id="previousTrack" class="glyphicon glyphicon glyphicon-fast-backward"></span>
-      <span id="playAudio" class="glyphicon glyphicon glyphicon-play"></span>
-      <span id="pauseAudio" class="glyphicon glyphicon glyphicon-pause"></span>      
-      <span id="nextTrack" class="glyphicon glyphicon glyphicon-fast-forward"></span>                  
+      <div class="audioControlsWrapper" style="text-align: center">
+        <span id="previousTrack" class="glyphicon glyphicon glyphicon-fast-backward"></span>
+        <span id="playAudio" class="glyphicon glyphicon glyphicon-play"></span>
+        <span id="pauseAudio" class="glyphicon glyphicon glyphicon-pause"></span>      
+        <span id="nextTrack" class="glyphicon glyphicon glyphicon-fast-forward"></span>                  
+      </div>
     </div>
   </script>
 

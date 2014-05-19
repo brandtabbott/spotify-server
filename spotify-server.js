@@ -62,8 +62,12 @@ app.get('/spotify-server/login/:usernameAndpassword', function(req, res){
 
 //Retrieve PlayLists
 app.get('/spotify-server/playlists', function(req, res){
-  spotifyClient.newInstance(req.session.username,req.session.password).getPlayLists().on('playListsReady', function(playlists){
+  spotifyClient.newInstance(req.session.username,req.session.password).getPlayLists()
+  .on('playListsReady', function(playlists){
     res.send({playlists: playlists});
+  })
+  .on('error', function(err){
+    res.send({error: err});
   });
 });
 
@@ -72,8 +76,12 @@ app.get('/spotify-server/playlist/:playlistid', function(req, res){
   var playlistid = req.params.playlistid;
   var uri = 'spotify:user:'+req.session.username+':playlist:'+playlistid;
 
-  spotifyClient.newInstance(req.session.username,req.session.password).getTracksByPlayListURI(uri).on('tracksReady', function(tracks){
+  spotifyClient.newInstance(req.session.username,req.session.password).getTracksByPlayListURI(uri)
+  .on('tracksReady', function(tracks){
     res.send({tracks: tracks});
+  })
+  .on('error', function(err){
+    res.send({error: err});
   }); 
 });
 
@@ -81,17 +89,25 @@ app.get('/spotify-server/playlist/:playlistid', function(req, res){
 app.get('/spotify-server/track/:trackURI', function(req, res){
   var uri = req.params.trackURI;
 
-  spotifyClient.newInstance(req.session.username,req.session.password).getTrackByTrackURI(uri).on('trackReady', function(track){
+  spotifyClient.newInstance(req.session.username,req.session.password).getTrackByTrackURI(uri)
+  .on('trackReady', function(track){
     res.send(track);
   })
+  .on('error', function(err){
+    res.send({error: err});
+  });
 });
 
 //Retreive album art for a given track
 app.get('/spotify-server/album-art/:trackURI', function(req, res){
   var trackURI = req.params.trackURI;
 
-  spotifyClient.newInstance(req.session.username,req.session.password).getAlbumArtByTrackURI(trackURI).on('albumArtReady'+trackURI, function(data){
+  spotifyClient.newInstance(req.session.username,req.session.password).getAlbumArtByTrackURI(trackURI)
+  .on('albumArtReady'+trackURI, function(data){
     res.send(data);
+  })
+  .on('error', function(err){
+    res.send({error: err});
   });
 });
 

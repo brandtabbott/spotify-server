@@ -5,6 +5,7 @@ var getPlayLists, //function
     highlighTrackRow, //function
     playNextTrack, //function
     playTack, //function
+    displayError, //function
     playlists, //object
     tracks, //object
     customTrackQueue = new Array(),
@@ -76,6 +77,11 @@ $(document).ready(function(){
           $('.modal').modal('show');
         }            
       }).done(function(data){  
+        if(data.error){
+          displayError(data.error);
+          return;
+        }
+
         //Build custom queue
         var firstSong = false;
 
@@ -116,6 +122,11 @@ $(document).ready(function(){
         $('.modal').modal('show');
       }
     }).done(function(data){
+      if(data.error){
+        displayError(data.error);
+        return;
+      }      
+
       data.playlists.sort(sortByAttributeNameComparitor)
       renderHandlebarsTemplate('playlists', data);  
       playlists = data;        
@@ -132,7 +143,12 @@ $(document).ready(function(){
       beforeSend: function() {
         $('.modal').modal('show');
       }            
-    }).done(function(data){          
+    }).done(function(data){    
+      if(data.error){
+        displayError(data.error);
+        return;
+      }  
+              
       renderHandlebarsTemplate('tracks', data);
 
       //Load first track
@@ -196,6 +212,10 @@ $(document).ready(function(){
     
     return 0;
   }   
+
+  function displayError(error){
+    alert(error);
+  }
 
   //Handler for login
   $('#login').click(function(){
@@ -301,6 +321,11 @@ $(document).ready(function(){
           $('.modal').modal('show');
         }            
       }).done(function(data){  
+        if(data.error){
+          displayError(data.error);
+          return;
+        }  
+               
         renderHandlebarsTemplate('searchResults', data);
         $('.modal').modal('hide'); 
       });     
