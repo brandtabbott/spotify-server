@@ -1,3 +1,9 @@
+0.1.3 / 2014-05-19
+==================
+  * server: Added checking for tracks
+  * server: Added error pushing to clients
+  * client: Added smaller screen resolution styles for Bootstrap
+
 0.1.2 / 2014-04-30
 ==================
 
