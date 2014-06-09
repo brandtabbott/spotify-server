@@ -1,3 +1,7 @@
+0.1.5 / 2014-06-09
+==================
+  * server: Override rootlist function to return all root lists, not just published root lists
+
 0.1.4 / 2014-06-09
 ==================
   * server: Override the sendPong function from node-spotify-web
