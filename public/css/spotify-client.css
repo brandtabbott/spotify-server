@@ -11,6 +11,7 @@
   background-image: -webkit-linear-gradient(right, #57F059 0%, #143815 100%);
   background-image: -ms-linear-gradient(right, #57F059 0%, #143815 100%);
   background-image: linear-gradient(to right, #57F059 0%, #143815 100%);
+  overflow-x: hidden;
 }
 
 .navbar-default{border: 0; border-bottom: 1px solid #fff; background-color: transparent; color: #fff;}
@@ -127,7 +128,7 @@ input.search:focus{
   margin: 0 auto;
   padding: 35px 0 30px;
   float: none;
-  width: 400px;
+  width: 300px;
   box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.65);

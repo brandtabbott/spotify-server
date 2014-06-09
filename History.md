@@ -1,3 +1,7 @@
+0.1.4 / 2014-06-09
+==================
+  * server: Override the sendPong function from node-spotify-web
+
 0.1.3 / 2014-05-19
 ==================
   * server: Added checking for tracks
