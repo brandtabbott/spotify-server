@@ -1,3 +1,7 @@
+0.1.6 / 2015-04-24
+==================
+  * server: Upgraded spotfiy-web to version 1.3.0 which resloves login (ping/pong) issues
+
 0.1.5 / 2014-06-09
 ==================
   * server: Override rootlist function to return all root lists, not just published root lists
