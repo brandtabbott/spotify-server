@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<base href="/">
+<meta charset="UTF-8">
+  <title>Spotify Server</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">        
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">        
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.0-rc4/angular-material.css'>  
+  <link rel="stylesheet" href="/css/style.css">        
+  <style>
+    .body{
+      background-image:url(http://www.videolix.net/wp-content/uploads/2015/05/spotify-wallpaper-2.png);
+      background-size:     cover;
+      background-repeat:   no-repeat;
+      background-position: center center;   
+    }
+    .transparent{background-color: transparent !important;}
+    .transparent-toolbar{background:rgba(127,127,127,0.2) !important;}    
+
+  </style>
+</head>
+
+<body class="body">
+  <div ng-controller="AppCtrl" layout="column" ng-app="SpotifyServer" ng-cloak>
+    
+    <md-toolbar class="md-toolbar">
+      <div class="md-toolbar-tools">
+        <h2>
+          <span>Spotify Server</span>
+        </h2>
+        <span flex=""></span>
+        <span flex=""></span>
+      </div>
+    </md-toolbar>
+    <md-toolbar class="md-toolbar transparent-toolbar">
+      <div class="md-toolbar-tools">
+        <h2>
+          <span>Playlists</span>
+        </h2>
+        <span flex=""></span>
+        <span flex=""></span>
+      </div>
+    </md-toolbar>
+    
+    <md-content flex layout-padding class="transparent">                  
+      <md-list class="listdemoListControls">                        
+        <md-list-item ng-repeat="request in requests">        
+        <p>{{request.rowId}}</p>
+        <p>{{request.lastModifiedText}}</p>
+        <p>{{request.lead.FirstName}} {{request.lead.LastName}}</p>
+        <p>{{request.nextStep}}</p>
+        <p>{{request.status}}</p>           
+        </md-list-item>      
+      </md-list>
+
+      <md-progress-linear md-mode="determinate" value="50"></md-progress-linear>
+    </md-content>    
+
+  </div>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.min.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-aria.min.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-messages.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.0-rc4/angular-material.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/assets-cache.js'></script>
+  <script src="/js/index.js"></script>      
+</body>
+</html>
