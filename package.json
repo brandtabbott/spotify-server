@@ -1,11 +1,11 @@
 {
   "name": "spotify-server",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "scripts": {
     "start": "node spotify-server.js"
   },
   "dependencies": {
-    "spotify-web": "git://github.com/neko/node-spotify-web",
+    "spotify-web": "git://github.com/neko/node-spotify-web.git",
     "xml2js": "0.4.2",
     "express": "3.1.1",
     "ejs": "1.0.0",
@@ -13,14 +13,21 @@
     "express-session": "1.0.2",
     "cookie-parser": "1.0.1"
   },
-  "engines" : {
+  "engines": {
     "node": "0.10.24",
     "npm": "1.4.6"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/brandtabbott/spotify-server"
+    "url": "git+https://github.com/brandtabbott/spotify-server.git"
   },
   "author": "Brandt Abbott <brandtabbott@hotmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "description": "Spotify-Server",
+  "bugs": {
+    "url": "https://github.com/brandtabbott/spotify-server/issues"
+  },
+  "homepage": "https://github.com/brandtabbott/spotify-server#readme",
+  "main": "spotify-server.js",
+  "devDependencies": {}
 }
